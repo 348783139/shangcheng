@@ -90,6 +90,26 @@
             <artifactId>servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.pinyougou</groupId>
+            <artifactId>pinyougou-sellergoods-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.pinyougou</groupId>
+            <artifactId>pinyougou-sellergoods-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+        </dependency>
 
 
     </dependencies>
@@ -103,7 +123,7 @@
                 <version>2.2</version>
                 <configuration>
                     <!-- 指定端口 -->
-                    <port>8080</port>
+                    <port>9102</port>
                     <!-- 请求路径 -->
                     <path>/</path>
                 </configuration>
