@@ -95,9 +95,25 @@ public class ItemCatServiceImpl implements ItemCatService {
 			}
 	
 		}
+		if (itemCat.getParentId()!=null&&itemCat.getParentId().longValue()>=0){
+			criteria.andParentIdEqualTo(itemCat.getParentId());
+		}
 		
 		Page<TbItemCat> page= (Page<TbItemCat>)itemCatMapper.selectByExample(example);		
 		return new PageResult(page.getTotal(), page.getResult());
 	}
-	
+
+
+	/**
+	 * 根据ParentId查找下一级
+	 * @return
+	 */
+	@Override
+	public List<TbItemCat> findByParentId(Long parentId) {
+		TbItemCatExample example = new TbItemCatExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andParentIdEqualTo(parentId);
+		return itemCatMapper.selectByExample(example);
+	}
+
 }

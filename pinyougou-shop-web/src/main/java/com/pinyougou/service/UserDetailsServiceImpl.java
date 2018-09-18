@@ -22,13 +22,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println("经过了 UserDetailsServiceImpl");
         List<GrantedAuthority> grantedAuths = new ArrayList<>();
         grantedAuths.add(new SimpleGrantedAuthority("ROLE_SELLER"));
         TbSeller seller = sellerService.findOne(username);
         if (seller!=null){
             if (seller.getStatus().equals("1")){
-                System.out.println(seller.getPassword());
+//                System.out.println(seller.getPassword());
                 return new User(username,seller.getPassword(),grantedAuths);
             }else{
                 return null;

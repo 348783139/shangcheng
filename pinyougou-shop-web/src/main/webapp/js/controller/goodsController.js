@@ -1,5 +1,5 @@
  //控制层 
-app.controller('goodsController' ,function($scope,$controller   ,goodsService){	
+app.controller('goodsController' ,function($scope,$controller   ,goodsService,uploadService){
 	
 	$controller('baseController',{$scope:$scope});//继承
 	
@@ -32,18 +32,15 @@ app.controller('goodsController' ,function($scope,$controller   ,goodsService){
 	}
 	
 	//保存 
-	$scope.save=function(){				
-		var serviceObject;//服务层对象  				
-		if($scope.entity.id!=null){//如果有ID
-			serviceObject=goodsService.update( $scope.entity ); //修改  
-		}else{
-			serviceObject=goodsService.add( $scope.entity  );//增加 
-		}				
-		serviceObject.success(
+	$scope.add=function(){
+        $scope.entity.goodsDesc.introduction=editor.html();
+        goodsService.add( $scope.entity  ).success(
 			function(response){
 				if(response.success){
 					//重新查询 
-		        	$scope.reloadList();//重新加载
+		        	alert("保存成功");
+		        	$scope.entity={};
+                    editor.html("");
 				}else{
 					alert(response.message);
 				}
@@ -76,5 +73,30 @@ app.controller('goodsController' ,function($scope,$controller   ,goodsService){
 			}			
 		);
 	}
+
+	$scope.uploadFile=function () {
+		uploadService.uploadFile().success(
+			function (response) {
+				if (response.success){
+					$scope.image_entity.url=response.message;
+				}else{
+					alert(response.message);
+				}
+            }
+		).error(function () {
+			alert("上传发生错误");
+        })
+    }
+
+    $scope.entity={goods:{},goodDesc:{itemImages:[]}};
+
+	//显示照片
+	$scope.add_image_entity=function () {
+		$scope.entity.goodDesc.itemImages.push($scope.image_entity);
+    }
+	//从列表中移除照片
+    $scope.remove_image_entity=function(index){
+        $scope.entity.goodDesc.itemImages.splice(index,1);
+    }
     
 });	
