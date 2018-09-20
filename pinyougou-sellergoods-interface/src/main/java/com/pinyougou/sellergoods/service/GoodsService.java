@@ -24,13 +24,7 @@ public interface GoodsService {
 	 * @return
 	 */
 	public PageResult findPage(int pageNum, int pageSize);
-	
-	
-	/**
-	 * 增加
-	*/
-	public void add(TbGoods goods);
-	
+
 	
 	/**
 	 * 修改
@@ -66,5 +60,5 @@ public interface GoodsService {
 	 * @param goods
 	 */
 	public void add(Goods goods);
-	
+
 }
