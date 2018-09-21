@@ -29,7 +29,7 @@ public interface GoodsService {
 	/**
 	 * 修改
 	 */
-	public void update(TbGoods goods);
+	public void update(Goods goods);
 	
 
 	/**
@@ -37,7 +37,7 @@ public interface GoodsService {
 	 * @param id
 	 * @return
 	 */
-	public TbGoods findOne(Long id);
+	public Goods findOne(Long id);
 	
 	
 	/**
@@ -60,5 +60,12 @@ public interface GoodsService {
 	 * @param goods
 	 */
 	public void add(Goods goods);
+
+	/**
+	 * 审核通过跟驳回
+	 * @param ids
+	 * @param status
+	 */
+	public void updateStatus(Long[] ids,String status);
 
 }

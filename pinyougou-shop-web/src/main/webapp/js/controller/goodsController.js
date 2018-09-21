@@ -1,5 +1,5 @@
 //控制层
-app.controller('goodsController', function ($scope, $controller, goodsService, uploadService, itemCatService, typeTemplateService) {
+app.controller('goodsController', function ($scope, $controller,$location, goodsService, uploadService, itemCatService, typeTemplateService) {
 
     $controller('baseController', {$scope: $scope});//继承
 
@@ -24,15 +24,41 @@ app.controller('goodsController', function ($scope, $controller, goodsService, u
 
     //查询实体
     $scope.findOne = function (id) {
+        var id=$location.search()['id']
+        if(id==null){
+            return null;
+        }
         goodsService.findOne(id).success(
             function (response) {
                 $scope.entity = response;
+                editor.html($scope.entity.goodsDesc.introduction);
+                $scope.entity.goodsDesc.itemImages=JSON.parse($scope.entity.goodsDesc.itemImages);
+                $scope.entity.goodsDesc.customAttributeItems=JSON.parse($scope.entity.goodsDesc.customAttributeItems);
+                $scope.entity.goodsDesc.specificationItems=JSON.parse($scope.entity.goodsDesc.specificationItems);
+                for( var i=0;i<$scope.entity.itemList.length;i++ ){
+                    $scope.entity.itemList[i].spec =
+                        JSON.parse( $scope.entity.itemList[i].spec);
+                }
             }
         );
+    };
+    //读取规格选项
+    $scope.checkAttributeValue=function (specName, optionName) {
+        var item = $scope.entity.goodsDesc.specificationItems;
+        var object=$scope.searchObjectByKey(item,'attributeName',specName);
+        if(object!=null){
+            if(object.attributeValue.indexOf(optionName)>=0){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
     }
 
     //保存
-    $scope.add = function () {
+    /*$scope.add = function () {
         $scope.entity.goodsDesc.introduction = editor.html();
         goodsService.add($scope.entity).success(
             function (response) {
@@ -46,7 +72,30 @@ app.controller('goodsController', function ($scope, $controller, goodsService, u
                 }
             }
         );
-    }
+    }*/
+    //保存
+    $scope.save=function(){
+//提取文本编辑器的值
+        $scope.entity.goodsDesc.introduction=editor.html();
+        var serviceObject;//服务层对象
+        if($scope.entity.goods.id!=null){//如果有 ID
+            serviceObject=goodsService.update( $scope.entity ); //修改
+        }else{
+            serviceObject=goodsService.add( $scope.entity );//增加
+        }
+        serviceObject.success(
+            function(response){
+                if(response.success){
+                    alert('保存成功');
+                    $scope.entity={};
+                    editor.html("");
+                    location.href="goods.html"
+                }else{
+                    alert(response.message);
+                }
+            }
+        );
+    };
 
 
     //批量删除
@@ -143,7 +192,9 @@ app.controller('goodsController', function ($scope, $controller, goodsService, u
             function (response) {
                 $scope.typeTemplate = response;
                 $scope.typeTemplate.brandIds = JSON.parse($scope.typeTemplate.brandIds);
-                $scope.entity.goodsDesc.customAttributeItems = JSON.parse($scope.typeTemplate.customAttributeItems);
+                if ($location.search()['id']==null){
+                    $scope.entity.goodsDesc.customAttributeItems = JSON.parse($scope.typeTemplate.customAttributeItems);
+                }
             }
         )
 

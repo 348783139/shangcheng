@@ -20,6 +20,7 @@ import com.pinyougou.pojo.TbGoodsExample.Criteria;
 
 
 import entity.PageResult;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 服务实现层
@@ -27,6 +28,7 @@ import entity.PageResult;
  * @author Administrator
  */
 @Service
+@Transactional
 public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
@@ -65,8 +67,15 @@ public class GoodsServiceImpl implements GoodsService {
      * 修改
      */
     @Override
-    public void update(TbGoods goods) {
-        goodsMapper.updateByPrimaryKey(goods);
+    public void update(Goods goods) {
+        goods.getGoods().setAuditStatus("0");//设置未申请状态:如果是经过修改的商品，需要重新设置状态;
+        goodsMapper.updateByPrimaryKey(goods.getGoods());
+        goodsDescMapper.updateByPrimaryKey(goods.getGoodsDesc());
+        TbItemExample example = new TbItemExample();
+        TbItemExample.Criteria criteria = example.createCriteria();
+        criteria.andGoodsIdEqualTo(goods.getGoods().getId());
+        itemMapper.deleteByExample(example);
+        saveItemList(goods);
     }
 
     /**
@@ -76,8 +85,21 @@ public class GoodsServiceImpl implements GoodsService {
      * @return
      */
     @Override
-    public TbGoods findOne(Long id) {
-        return goodsMapper.selectByPrimaryKey(id);
+    public Goods findOne(Long id) {
+        TbGoods tbGoods = goodsMapper.selectByPrimaryKey(id);
+        TbGoodsDesc tbGoodsDescc = goodsDescMapper.selectByPrimaryKey(id);
+        Goods goods = new Goods();
+        goods.setGoods(tbGoods);
+        goods.setGoodsDesc(tbGoodsDescc);
+
+        TbItemExample example = new TbItemExample();
+        TbItemExample.Criteria criteria = example.createCriteria();
+        criteria.andGoodsIdEqualTo(id);
+        List<TbItem> itemList = itemMapper.selectByExample(example);
+        goods.setItemList(itemList);
+
+        return goods;
+
     }
 
     /**
@@ -86,7 +108,9 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public void delete(Long[] ids) {
         for (Long id : ids) {
-            goodsMapper.deleteByPrimaryKey(id);
+            TbGoods goods = goodsMapper.selectByPrimaryKey(id);
+            goods.setIsDelete("1");
+            goodsMapper.updateByPrimaryKey(goods);
         }
     }
 
@@ -97,6 +121,7 @@ public class GoodsServiceImpl implements GoodsService {
 
         TbGoodsExample example = new TbGoodsExample();
         Criteria criteria = example.createCriteria();
+        criteria.andIsDeleteIsNull();
 
         if (goods != null) {
             if (goods.getSellerId() != null && goods.getSellerId().length() > 0) {
@@ -122,6 +147,7 @@ public class GoodsServiceImpl implements GoodsService {
             }
             if (goods.getIsDelete() != null && goods.getIsDelete().length() > 0) {
                 criteria.andIsDeleteLike("%" + goods.getIsDelete() + "%");
+
             }
 
         }
@@ -136,7 +162,25 @@ public class GoodsServiceImpl implements GoodsService {
         goodsMapper.insert(goods.getGoods());
         goods.getGoodsDesc().setGoodsId(goods.getGoods().getId());
         goodsDescMapper.insert(goods.getGoodsDesc());
+        saveItemList(goods);
 
+    }
+
+    /**
+     * 审核通过跟驳回
+     * @param ids
+     * @param status
+     */
+    @Override
+    public void updateStatus(Long[] ids, String status) {
+        for (Long id : ids) {
+            TbGoods tbGoods = goodsMapper.selectByPrimaryKey(id);
+            tbGoods.setAuditStatus(status);
+            goodsMapper.updateByPrimaryKey(tbGoods);
+        }
+    }
+
+    private void saveItemList(Goods goods){
         if ("1".equals(goods.getGoods().getIsEnableSpec())) {
             //标题
             List<TbItem> itemList = goods.getItemList();
@@ -152,7 +196,7 @@ public class GoodsServiceImpl implements GoodsService {
                 itemMapper.insert(item);
 
             }
-        }else{
+        }else {
 
             TbItem item = new TbItem();
             item.setTitle(goods.getGoods().getGoodsName());//商品kpu
@@ -164,7 +208,6 @@ public class GoodsServiceImpl implements GoodsService {
             setItemValus(goods, item);
             itemMapper.insert(item);
         }
-
     }
 
     public void setItemValus(Goods goods,TbItem item){

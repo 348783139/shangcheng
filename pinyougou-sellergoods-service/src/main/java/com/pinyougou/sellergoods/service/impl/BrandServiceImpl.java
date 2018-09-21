@@ -10,12 +10,14 @@ import com.pinyougou.sellergoods.service.BrandService;
 import entity.PageResult;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
 @Service
+@Transactional
 public class BrandServiceImpl implements BrandService {
 
     @Autowired
