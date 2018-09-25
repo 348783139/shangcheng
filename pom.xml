@@ -286,6 +286,9 @@
         <module>pinyougou-manager-web</module>
         <module>pinyougou-shop-web</module>
         <module>pinyougou-dao</module>
+        <module>pinyougou-content-interface</module>
+        <module>pinyougou-content-service</module>
+        <module>pinyougou-portal-web</module>
     </modules>
 
 
