@@ -14,6 +14,8 @@ import com.pinyougou.pojo.TbItemCatExample.Criteria;
 
 
 import entity.PageResult;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.solr.core.SolrTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -27,6 +29,9 @@ public class ItemCatServiceImpl implements ItemCatService {
 
 	@Autowired
 	private TbItemCatMapper itemCatMapper;
+
+	@Autowired
+	private RedisTemplate redisTemplate;
 	
 	/**
 	 * 查询全部
@@ -115,6 +120,14 @@ public class ItemCatServiceImpl implements ItemCatService {
 		TbItemCatExample example = new TbItemCatExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andParentIdEqualTo(parentId);
+
+		//存入缓存
+		List<TbItemCat> itemCats = findAll();
+		for (TbItemCat itemCat : itemCats) {
+
+			redisTemplate.boundHashOps("itemCat").put(itemCat.getName(), itemCat.getTypeId());
+		}
+		System.out.println("更新缓存:商品分类表");
 		return itemCatMapper.selectByExample(example);
 	}
 
