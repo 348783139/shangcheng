@@ -2,49 +2,40 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
     <title>产品详情页</title>
     <link rel="icon" href="assets/img/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="css/webbase.css"/>
-    <link rel="stylesheet" type="text/css" href="css/pages-item.css"/>
-    <link rel="stylesheet" type="text/css" href="css/pages-zoom.css"/>
-    <link rel="stylesheet" type="text/css" href="css/widget-cartPanelView.css"/>
-
+    <link rel="stylesheet" type="text/css" href="css/webbase.css" />
+    <link rel="stylesheet" type="text/css" href="css/pages-item.css" />
+    <link rel="stylesheet" type="text/css" href="css/pages-zoom.css" />
+    <link rel="stylesheet" type="text/css" href="css/widget-cartPanelView.css" />
 
     <script type="text/javascript" src="plugins/angularjs/angular.min.js"> </script>
     <script type="text/javascript" src="js/base.js"> </script>
     <script type="text/javascript" src="js/controller/itemController.js"> </script>
-
-
     <script>
         var skuList=[
-            
-                {
-                    "id":1369280,
-                    "title":"精品半身裙（秋款打折） 移动3G 16G",
-                    "price":0.01,
-                    "spec":{"网络":"移动3G","机身内存":"16G"}
-                }
-
-
-                {
-                    "id":1369281,
-                    "title":"精品半身裙（秋款打折） 移动3G 32G",
-                    "price":0.02,
-                    "spec":{"网络":"移动3G","机身内存":"32G"}
-                }
-
-
-                {
-                    "id":1369282,
-                    "title":"精品半身裙（秋款打折） 移动4G 16G",
-                    "price":0.03,
-                    "spec":{"网络":"移动4G","机身内存":"16G"}
-                }
-
+                     {
+               id:1369280,
+               title:'精品半身裙（秋款打折） 移动3G 16G',
+               price:0.01,
+               spec:{"网络":"移动3G","机身内存":"16G"}
+           } ,
+           {
+               id:1369281,
+               title:'精品半身裙（秋款打折） 移动3G 32G',
+               price:0.02,
+               spec:{"网络":"移动3G","机身内存":"32G"}
+           } ,
+           {
+               id:1369282,
+               title:'精品半身裙（秋款打折） 移动4G 16G',
+               price:0.03,
+               spec:{"网络":"移动4G","机身内存":"16G"}
+           } ,
         ];
 
     </script>
@@ -159,14 +150,22 @@
         </div>
     </div>
 </div>
+
 <!--页面顶部 结束-->
 <div class="py-container">
     <div id="item">
         <div class="crumb-wrap">
             <ul class="sui-breadcrumb">
-                <li><a href="#">服饰内衣</a></li>
-                <li><a href="#">女装</a></li>
-                <li><a href="#">半身裙</a></li>
+                <li>
+                    <a href="#">服饰内衣</a>
+                </li>
+                <li>
+                    <a href="#">女装</a>
+                </li>
+                <li>
+                    <a href="#">半身裙</a>
+                </li>
+
             </ul>
         </div>
         <!--product-info-->
@@ -177,8 +176,7 @@
                     <!--默认第一个预览-->
                     <div id="preview" class="spec-preview">
 							<span class="jqzoom">
-                                    <img jqimg="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYhCAVy_QAAA7hKKuOGg277.png" src="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYhCAVy_QAAA7hKKuOGg277.png" width="400px" height="400px"/>
-
+							     <img jqimg="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYhCAVy_QAAA7hKKuOGg277.png" src="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYhCAVy_QAAA7hKKuOGg277.png" width="400px" height="400px" />
                             </span>
                     </div>
                     <!--下方的缩略图-->
@@ -187,11 +185,10 @@
                         <!--左右按钮-->
                         <div class="items">
                             <ul>
-                                    <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYhCAVy_QAAA7hKKuOGg277.png" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYhCAVy_QAAA7hKKuOGg277.png" onmousemove="preview(this)"/></li>
-                                    <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYiSAWrJHAABBIjJcuLQ814.png" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYiSAWrJHAABBIjJcuLQ814.png" onmousemove="preview(this)"/></li>
-                                    <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYjCAJMH9AAA-eAMgy1k889.png" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYjCAJMH9AAA-eAMgy1k889.png" onmousemove="preview(this)"/></li>
-                                    <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYjyAYw7DAABBAvyO3-w649.png" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYjyAYw7DAABBAvyO3-w649.png" onmousemove="preview(this)"/></li>
-
+                                       <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYhCAVy_QAAA7hKKuOGg277.png" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYhCAVy_QAAA7hKKuOGg277.png" onmousemove="preview(this)" /></li>
+                                       <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYiSAWrJHAABBIjJcuLQ814.png" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYiSAWrJHAABBIjJcuLQ814.png" onmousemove="preview(this)" /></li>
+                                       <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYjCAJMH9AAA-eAMgy1k889.png" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYjCAJMH9AAA-eAMgy1k889.png" onmousemove="preview(this)" /></li>
+                                       <li><img src="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYjyAYw7DAABBAvyO3-w649.png" bimg="http://192.168.25.133/group1/M00/00/00/wKgZhVuvYjyAYw7DAABBAvyO3-w649.png" onmousemove="preview(this)" /></li>
                             </ul>
                         </div>
                         <a class="next">&gt;</a>
@@ -202,7 +199,7 @@
                 <div class="sku-name">
                     <h4>{{sku.title}}</h4>
                 </div>
-                <div class="news"><span>打折促销</span></div>
+                <div class="news"><span>打折促销 </span></div>
                 <div class="summary">
                     <div class="summary-wrap">
                         <div class="fl title">
@@ -234,7 +231,7 @@
                             <i>支　　持</i>
                         </div>
                         <div class="fl fix-width">
-                            <em class="t-gray">以旧换新，闲置手机回收 4G套餐超值抢 礼品购</em>
+                            <em class="t-gray">以旧换新，闲置手机回收  4G套餐超值抢  礼品购</em>
                         </div>
                     </div>
                     <div class="summary-wrap">
@@ -248,63 +245,44 @@
                 </div>
                 <div class="clearfix choose">
                     <div id="specification" class="summary-wrap clearfix">
-                            <dl>
-                                <dt>
-                                    <div class="fl title">
-                                        <i>网络</i>
-                                    </div>
-                                </dt>
 
-                                      <dd>
-                                          <a
-                                                  class="{{isSelected('网络','移动3G')?'selected':''}}"
-                                                  ng-click="selectSpecification('网络','移动3G')">
-                                              移动3G
-                                              <span title="点击取消选择">&nbsp;</span>
-                                          </a>
-                                      </dd>
-                                      <dd>
-                                          <a
-                                                  class="{{isSelected('网络','移动4G')?'selected':''}}"
-                                                  ng-click="selectSpecification('网络','移动4G')">
-                                              移动4G
-                                              <span title="点击取消选择">&nbsp;</span>
-                                          </a>
-                                      </dd>
+                                <dl>
+                                    <dt>
+                                        <div class="fl title">
+                                            <i>网络</i>
+                                        </div>
+                                    </dt>
 
-                            </dl>
+								  <dd><a href="javascript:;"
+                                         class="{{isSelected('网络','移动3G')?'selected':''}}"
+                                         ng-click="selectSpecification('网络','移动3G')">移动3G
+                                      <span title="点击取消选择">&nbsp;</span>
+                                  </a></dd>
+								  <dd><a href="javascript:;"
+                                         class="{{isSelected('网络','移动4G')?'selected':''}}"
+                                         ng-click="selectSpecification('网络','移动4G')">移动4G
+                                      <span title="点击取消选择">&nbsp;</span>
+                                  </a></dd>
+                                </dl>
 
+                                <dl>
+                                    <dt>
+                                        <div class="fl title">
+                                            <i>机身内存</i>
+                                        </div>
+                                    </dt>
 
-                            <dl>
-                                <dt>
-                                    <div class="fl title">
-                                        <i>机身内存</i>
-                                    </div>
-                                </dt>
-
-                                      <dd>
-                                          <a
-                                                  class="{{isSelected('机身内存','16G')?'selected':''}}"
-                                                  ng-click="selectSpecification('机身内存','16G')">
-                                              16G
-                                              <span title="点击取消选择">&nbsp;</span>
-                                          </a>
-                                      </dd>
-                                      <dd>
-                                          <a
-                                                  class="{{isSelected('机身内存','32G')?'selected':''}}"
-                                                  ng-click="selectSpecification('机身内存','32G')">
-                                              32G
-                                              <span title="点击取消选择">&nbsp;</span>
-                                          </a>
-                                      </dd>
-
-                            </dl>
-
-
-
-
-
+								  <dd><a href="javascript:;"
+                                         class="{{isSelected('机身内存','16G')?'selected':''}}"
+                                         ng-click="selectSpecification('机身内存','16G')">16G
+                                      <span title="点击取消选择">&nbsp;</span>
+                                  </a></dd>
+								  <dd><a href="javascript:;"
+                                         class="{{isSelected('机身内存','32G')?'selected':''}}"
+                                         ng-click="selectSpecification('机身内存','32G')">32G
+                                      <span title="点击取消选择">&nbsp;</span>
+                                  </a></dd>
+                                </dl>
 
                     </div>
 
@@ -312,7 +290,7 @@
                         <div class="fl title">
                             <div class="control-group">
                                 <div class="controls">
-                                    <input autocomplete="off" type="text" value="{{num}}" minnum="1" class="itxt"/>
+                                    <input autocomplete="off" ng-model="num" type="text" value="1" minnum="1" class="itxt" />
                                     <a href="javascript:void(0)" class="increment plus" ng-click="addNum(1)">+</a>
                                     <a href="javascript:void(0)" class="increment mins" ng-click="addNum(-1)">-</a>
                                 </div>
@@ -321,7 +299,7 @@
                         <div class="fl">
                             <ul class="btn-choose unstyled">
                                 <li>
-                                    <a href="cart.html" target="_blank" class="sui-btn  btn-danger addshopcar" ng-click="addToCart()">加入购物车</a>
+                                    <a href="#"  class="sui-btn  btn-danger addshopcar" ng-click="addToCart()">加入购物车</a>
                                 </li>
                             </ul>
                         </div>
@@ -360,7 +338,7 @@
                             <li>
                                 <div class="list-wrap">
                                     <div class="p-img">
-                                        <img src="img/_/part01.png"/>
+                                        <img src="img/_/part01.png" />
                                     </div>
                                     <div class="attr">
                                         <em>Apple苹果iPhone 6s (A1699)</em>
@@ -379,7 +357,7 @@
                             <li>
                                 <div class="list-wrap">
                                     <div class="p-img">
-                                        <img src="img/_/part02.png"/>
+                                        <img src="img/_/part02.png" />
                                     </div>
                                     <div class="attr">
                                         <em>Apple苹果iPhone 6s (A1699)</em>
@@ -398,7 +376,7 @@
                             <li>
                                 <div class="list-wrap">
                                     <div class="p-img">
-                                        <img src="img/_/part03.png"/>
+                                        <img src="img/_/part03.png" />
                                     </div>
                                     <div class="attr">
                                         <em>Apple苹果iPhone 6s (A1699)</em>
@@ -415,7 +393,7 @@
                                 </div>
                                 <div class="list-wrap">
                                     <div class="p-img">
-                                        <img src="img/_/part02.png"/>
+                                        <img src="img/_/part02.png" />
                                     </div>
                                     <div class="attr">
                                         <em>Apple苹果iPhone 6s (A1699)</em>
@@ -432,7 +410,7 @@
                                 </div>
                                 <div class="list-wrap">
                                     <div class="p-img">
-                                        <img src="img/_/part03.png"/>
+                                        <img src="img/_/part03.png" />
                                     </div>
                                     <div class="attr">
                                         <em>Apple苹果iPhone 6s (A1699)</em>
@@ -462,7 +440,7 @@
                         <div class="fl master">
                             <div class="list-wrap">
                                 <div class="p-img">
-                                    <img src="img/_/l-m01.png"/>
+                                    <img src="img/_/l-m01.png" />
                                 </div>
                                 <em>￥5299</em>
                                 <i>+</i>
@@ -472,7 +450,7 @@
                             <ul class="suit-list">
                                 <li class="">
                                     <div id="">
-                                        <img src="img/_/dp01.png"/>
+                                        <img src="img/_/dp01.png" />
                                     </div>
                                     <i>Feless费勒斯VR</i>
                                     <label data-toggle="checkbox" class="checkbox-pretty">
@@ -480,21 +458,21 @@
                                     </label>
                                 </li>
                                 <li class="">
-                                    <div id=""><img src="img/_/dp02.png"/></div>
+                                    <div id=""><img src="img/_/dp02.png" /> </div>
                                     <i>Feless费勒斯VR</i>
                                     <label data-toggle="checkbox" class="checkbox-pretty">
                                         <input type="checkbox"><span>50</span>
                                     </label>
                                 </li>
                                 <li class="">
-                                    <div id=""><img src="img/_/dp03.png"/></div>
+                                    <div id=""><img src="img/_/dp03.png" /></div>
                                     <i>Feless费勒斯VR</i>
                                     <label data-toggle="checkbox" class="checkbox-pretty">
                                         <input type="checkbox"><span>59</span>
                                     </label>
                                 </li>
                                 <li class="">
-                                    <div id=""><img src="img/_/dp04.png"/></div>
+                                    <div id=""><img src="img/_/dp04.png" /></div>
                                     <i>Feless费勒斯VR</i>
                                     <label data-toggle="checkbox" class="checkbox-pretty">
                                         <input type="checkbox"><span>99</span>
@@ -542,13 +520,12 @@
                     <div class="tab-content tab-wraped">
                         <div id="one" class="tab-pane active">
                             <ul class="goods-intro unstyled">
-                                         <li>内存大小:20G</li>
-                                         <li>颜色:灰色</li>
-
-
+									      <li>内存大小：20G</li>
+									      <li>颜色：灰色</li>
                             </ul>
                             <div class="intro-detail">
-                            11<img src="http://localhost:9102/plugins/kindeditor/plugins/emoticons/images/10.gif" border="0" alt="" /><img src="http://localhost:9102/plugins/kindeditor/plugins/emoticons/images/20.gif" border="0" alt="" />                            </div>
+                            11<img src="http://localhost:9102/plugins/kindeditor/plugins/emoticons/images/10.gif" border="0" alt="" /><img src="http://localhost:9102/plugins/kindeditor/plugins/emoticons/images/20.gif" border="0" alt="" />
+                            </div>
                         </div>
                         <div id="two" class="tab-pane">
                             <p>塑料袋</p>
@@ -575,7 +552,7 @@
                     <li class="yui3-u-1-6">
                         <div class="list-wrap">
                             <div class="p-img">
-                                <img src="img/_/itemlike01.png"/>
+                                <img src="img/_/itemlike01.png" />
                             </div>
                             <div class="attr">
                                 <em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
@@ -594,7 +571,7 @@
                     <li class="yui3-u-1-6">
                         <div class="list-wrap">
                             <div class="p-img">
-                                <img src="img/_/itemlike02.png"/>
+                                <img src="img/_/itemlike02.png" />
                             </div>
                             <div class="attr">
                                 <em>Apple苹果iPhone 6s/6s Plus 16G 64G 128G</em>
@@ -613,7 +590,7 @@
                     <li class="yui3-u-1-6">
                         <div class="list-wrap">
                             <div class="p-img">
-                                <img src="img/_/itemlike03.png"/>
+                                <img src="img/_/itemlike03.png" />
                             </div>
                             <div class="attr">
                                 <em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
@@ -632,7 +609,7 @@
                     <li class="yui3-u-1-6">
                         <div class="list-wrap">
                             <div class="p-img">
-                                <img src="img/_/itemlike04.png"/>
+                                <img src="img/_/itemlike04.png" />
                             </div>
                             <div class="attr">
                                 <em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
@@ -651,7 +628,7 @@
                     <li class="yui3-u-1-6">
                         <div class="list-wrap">
                             <div class="p-img">
-                                <img src="img/_/itemlike05.png"/>
+                                <img src="img/_/itemlike05.png" />
                             </div>
                             <div class="attr">
                                 <em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
@@ -670,7 +647,7 @@
                     <li class="yui3-u-1-6">
                         <div class="list-wrap">
                             <div class="p-img">
-                                <img src="img/_/itemlike06.png"/>
+                                <img src="img/_/itemlike06.png" />
                             </div>
                             <div class="attr">
                                 <em>DELL戴尔Ins 15MR-7528SS 15英寸 银色 笔记本</em>
@@ -694,7 +671,6 @@
 <!-- 底部栏位 -->
 
 <!--页面底部  开始 -->
-
 <div class="clearfix footer">
     <div class="py-container">
         <div class="footlink">
@@ -986,7 +962,6 @@
 <script type="text/javascript" src="js/plugins/jquery.jqzoom/jquery.jqzoom.js"></script>
 <script type="text/javascript" src="js/plugins/jquery.jqzoom/zoom.js"></script>
 <script type="text/javascript" src="index/index.js"></script>
-
 <!--页面底部  结束 -->
 </body>
 
