@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>pinyougou-search-service</artifactId>
+    <artifactId>pinyougou-pay-service</artifactId>
     <packaging>war</packaging>
 
-    <name>pinyougou-search-service Maven Webapp</name>
+    <name>pinyougou-pay-service Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -23,7 +23,6 @@
     </properties>
 
     <dependencies>
-
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -93,29 +92,21 @@
         </dependency>
         <dependency>
             <groupId>com.pinyougou</groupId>
-            <artifactId>pinyougou-sellergoods-interface</artifactId>
+            <artifactId>pinyougou-pay-interface</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>com.pinyougou</groupId>
-            <artifactId>pinyougou-dao</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.pinyougou</groupId>
-            <artifactId>pinyougou-search-interface</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
+
+
         <dependency>
             <groupId>com.pinyougou</groupId>
             <artifactId>pinyougou-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
         <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-client</artifactId>
-            <version>5.13.4</version>
+            <groupId>com.github.wxpay</groupId>
+            <artifactId>wxpay-sdk</artifactId>
+            <version>0.0.3</version>
         </dependency>
 
 
@@ -129,7 +120,7 @@
                 <version>2.2</version>
                 <configuration>
                     <!-- 指定端口 -->
-                    <port>9004</port>
+                    <port>9000</port>
                     <!-- 请求路径 -->
                     <path>/</path>
                 </configuration>
