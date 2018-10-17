@@ -3,7 +3,7 @@ package com.pinyougou.pojo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class TbOrderItem implements Serializable {
+public class TbOrderItem implements Serializable{
     private Long id;
 
     private Long itemId;
